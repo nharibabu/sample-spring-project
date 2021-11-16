@@ -1,0 +1,23 @@
+version: 0.2
+env:
+  variables:
+    JAVA_HOME: "/usr/lib/jvm/java-11-amazon-corretto.x86_64"
+phases:
+  install:
+    commands:
+    - echo installing maven...
+    - yum update -y
+    - yum install -y maven
+  build:
+    commands:
+    - echo building the project
+    - mvn package
+artifacts:
+  files:
+  - target/*.jar
+  - start_server.sh
+  - appspec.yml
+  discard-paths: yes
+cache:
+  paths:
+  - '/root/.m2/**/*'
