@@ -1,12 +1,12 @@
 version: 0.2
-env:
-  variables:
-    JAVA_HOME: "/usr/lib/jvm/java-11-amazon-corretto.x86_64"
 phases:
   install:
     commands:
-    - echo installing maven...
+    - echo updating OS...
     - yum update -y
+    - echo installing java...
+    - yum install java-1.8.0-amazon-corretto-devel
+    - echo installing maven...
     - wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
     - sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
     - yum install -y apache-maven
