@@ -7,7 +7,7 @@ hooks:
   BeforeInstall:
     - location: install_dependencies.sh
   ApplicationStop:
-    - location: scripts/stop_server.sh
+    - location: stop_server.sh
       timeout: 200
       runas: root
   ApplicationStart:
